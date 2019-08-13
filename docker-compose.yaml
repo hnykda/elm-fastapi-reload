@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+  hotCompiler:
+    image: compiler
+    build:
+        context: reloader
+    volumes:
+    - ./src/:/data/src/
+    - ./elm.json:/data/elm.json
+    - ./dist:/data/dist
+  server:
+    image: server
+    build:
+      context: server
+    ports:
+    - 8081:80
+    volumes:
+    - ./dist/:/static/
