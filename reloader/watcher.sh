@@ -1,2 +1,2 @@
 #!/bin/sh
-echo /data/src/Main.elm | entr -r /data/executor.sh
+ls /data/src | entr -r /data/executor.sh
